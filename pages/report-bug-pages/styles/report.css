@@ -1,0 +1,131 @@
+p,
+h2,
+h3 {
+  color: black;
+}
+
+.page {
+  background-color: rgb(236, 232, 225);
+}
+
+.report-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--super_size);
+  align-items: center;
+  justify-content: center;
+}
+
+.report-container h2 {
+  font-size: calc(var(--largest_size) * 2);
+}
+
+#reportForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--large_size);
+  width: 100%;
+  max-width: 600px;
+  background-color: rgb(15, 25, 35);
+  padding: var(--super_size);
+  border-radius: var(--tiny_size);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: var(--medium_size);
+  border: 1px solid #ccc;
+  border-radius: var(--tiny_size);
+  color: black;
+}
+
+select,
+option {
+  color: black;
+  letter-spacing: 1px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input[type="file"] {
+  color: white;
+}
+
+.field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--medium_size);
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  background-color: red;
+  border: none;
+  padding: var(--medium_size);
+  border-radius: var(--tiny_size);
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.checkbox-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--small_size);
+}
+
+.checkbox-container input {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-container label {
+  width: 100%;
+  font-size: var(--normal_size);
+}
+
+.error-message {
+  /* display: none; */
+  color: red;
+  font-size: var(--normal_size);
+  letter-spacing: 1px;
+}
+
+.popup-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+  transition: all 0.4s ease;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Muncul */
+.popup-success.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}

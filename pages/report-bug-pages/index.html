@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palorant</title>
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <link rel="stylesheet" href="./styles/report.css" />
+  </head>
+  <body>
+    <nav class="header">
+      <div class="navbar">
+        <div class="navbar-left">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <a class="logo">palorant</a>
+          <ul class="navbar-links">
+            <li id="home"><a href="../../index.html">home</a></li>
+            <li id="agents"><a href="../agents/index.html">agents</a></li>
+            <li id="maps"><a href="../maps/index.html">maps</a></li>
+            <li id="news"><a href="../news/index.html">news</a></li>
+          </ul>
+        </div>
+        <div class="navbar-right">
+          <a class="report-button" href="."> report bug </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div class="report-bug page">
+        <div class="report-container">
+          <h2>BUG REPORT</h2>
+          <form id="reportForm">
+            <div class="field">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+              />
+              <span class="error-message" id="usernameError"></span>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email" />
+              <span class="error-message" id="emailError"></span>
+              <div class="checkbox-container">
+                <input type="checkbox" id="emailConsent" name="emailConsent" />
+                <label for="emailConsent">
+                  Saya bersedia menerima email tindak lanjut
+                </label>
+              </div>
+              <span class="error-message" id="emailConsentError"></span>
+            </div>
+
+            <div class="field">
+              <label for="server">Server Palorant</label>
+              <select id="server" name="server">
+                <option value="">-- Pilih Server --</option>
+                <option value="AP">AP ( Asia Pacific )</option>
+                <option value="JP">JP ( Jepang )</option>
+                <option value="KR">KR ( Korea Selatan )</option>
+                <option value="NA">NA ( Amerika Utara )</option>
+                <option value="LATAM">LATAM ( Amerika Latin )</option>
+                <option value="BR">BR ( Brasil )</option>
+                <option value="EU">EU ( Eropa )</option>
+                <option value="TR">TR ( Turki )</option>
+                <option value="OC">OC ( Oceania )</option>
+              </select>
+              <span class="error-message" id="serverError"></span>
+            </div>
+
+            <div class="field">
+              <label for="message">Description</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Description"
+              ></textarea>
+              <span class="error-message" id="descriptionError"></span>
+            </div>
+
+            <div class="field">
+              <label for="screenshot">Upload Screenshot (opsional)</label>
+              <input type="file" id="screenshot" name="screenshot" multiple />
+              <span class="error-message" id="imageError"></span>
+            </div>
+
+            <button type="submit" class="submit-btn">Kirim Laporan</button>
+          </form>
+          <div id="successPopup" class="popup-success">
+            <p>🎉 Terima kasih! Laporan kamu telah dikirim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-background"></div>
+      <div class="footer-content">
+        <div class="footer-sosmed">
+          <span>
+            <img src="../../assets/imgs/icon/youtube.png" alt="" />
+          </span>
+          <span>
+            <img src="../../assets/imgs/icon/facebook.png" alt="" />
+          </span>
+          <span>
+            <img src="../../assets/imgs/icon/instagram.png" alt="" />
+          </span>
+        </div>
+        <div class="footer-copyright">
+          <a class="logo" href="../../index.html">GIOT GAMES</a>
+          <span>
+            2020-2025 Giot Games, Inc. GIOT GAME, PALORANT dan semua logo
+            terkait adalah merek dagang atau merek layanan terdaftar Giot Games,
+            Inc.
+          </span>
+          <div class="footer-contact">
+            <p>info@giot.games</p>
+            <p>+(62) 321-231-998</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script src="./scripts/script.js"></script>
+  <script src="../../scripts/location.js"></script>
+  <script src="../../scripts/navbar.js"></script>
+</html>

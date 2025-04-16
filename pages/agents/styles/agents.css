@@ -1,0 +1,97 @@
+#agents a {
+  color: red;
+}
+
+.page {
+  background-color: var(--wheaty);
+}
+
+.maps-container p,
+h2,
+h3 {
+  color: black;
+}
+
+.agents-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--super_size);
+}
+
+.agents-title {
+  display: flex;
+  margin-block: var(--large_size);
+  width: 100%;
+}
+
+.agents-container h2 {
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: calc(var(--large_size) * 2);
+  filter: drop-shadow(8px 8px 0px rgba(255, 70, 85, 1));
+  text-align: center;
+  background-color: var(--bluey);
+  padding-block: var(--medium_size);
+  padding-inline: calc(var(--super_size) * 2);
+  color: var(--wheaty);
+}
+
+.agents-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--large_size);
+}
+
+.agents-item {
+  width: 100%;
+  background-color: var(--bluey);
+  border-radius: var(--tiny_size);
+  overflow: hidden;
+  cursor: pointer;
+  filter: drop-shadow(6px 6px 0.5px rgba(255, 70, 85, 1));
+  transition: filter 0.2s ease-in-out;
+}
+
+.agent-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.agents-item img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.agents-item .agent-name {
+  width: 100%;
+  padding-block: var(--large_size);
+  font-weight: bold;
+  text-align: center;
+}
+
+.agents-item:hover img {
+  transform: scale(1.1);
+}
+
+.agents-item:hover {
+  filter: drop-shadow(4px 4px 2px rgba(255, 70, 85, 1));
+}
+
+.agents-title::before {
+  background: linear-gradient(to left, black, transparent);
+}
+
+@media (max-width: 768px) {
+  .agents-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .agents-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

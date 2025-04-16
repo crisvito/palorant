@@ -1,0 +1,144 @@
+#news a {
+  color: red;
+}
+
+p,
+h2,
+h3,
+h4,
+li {
+  color: black;
+}
+
+p {
+  text-align: justify;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.page {
+  background-color: rgb(236, 232, 225);
+}
+
+.detail-img {
+  width: 75%;
+}
+
+.detail-img img {
+  width: 100%;
+  border-radius: var(--tiny_size);
+}
+
+.detail-news-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--super_size);
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--super_size) * 2);
+  width: 75%;
+  letter-spacing: 0.1px;
+  word-spacing: var(--tiny_size);
+  line-height: 1.5;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-header h2 {
+  text-transform: uppercase;
+  font-size: var(--super_size);
+}
+
+.small {
+  display: flex;
+  gap: var(--normal_size);
+}
+
+.detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--largest_size);
+}
+
+.line {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.detail-body ul {
+  padding-left: 20px;
+}
+
+.detail-body ul ul {
+  padding-left: 20px;
+}
+
+.detail-body ul li::marker {
+  content: "• ";
+}
+
+.text-bold {
+  font-weight: 700;
+  color: black;
+  text-transform: uppercase;
+}
+
+.komunitas-img {
+  width: 100%;
+}
+
+.komunitas-img img {
+  width: 100%;
+}
+
+.art-by {
+  text-align: center;
+  font-size: var(--large_size);
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .detail-header {
+    flex-direction: column;
+    gap: var(--largest_size);
+  }
+  .detail-header h2 {
+    text-align: center;
+  }
+  .detail-img {
+    width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-header {
+    flex-direction: column;
+  }
+  .detail-img {
+    width: 100%;
+  }
+  .detail-content {
+    width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .detail-header h2 {
+    font-size: var(--largest_size);
+  }
+
+  .detail-content {
+    width: 100%;
+  }
+}
