@@ -72,22 +72,3 @@ mapsCarousel.addEventListener("mousemove", (e) => {
 document.addEventListener("mouseup", (e) => {
   isDragging = false;
 });
-
-// 📱 Tambahkan event listener untuk layar sentuh (HP)
-mapsCarousel.addEventListener("touchstart", (e) => {
-  isDragging = true;
-  startX = e.touches[0].pageX; // Ambil titik sentuh pertama
-  startScrollLeft = mapsCarousel.scrollLeft;
-});
-
-mapsCarousel.addEventListener("touchmove", (e) => {
-  if (!isDragging) return;
-  let maxScrollLeft = mapsCarousel.scrollWidth - mapsCarousel.clientWidth;
-  mapsCarousel.scrollLeft =
-    startScrollLeft - (e.touches[0].pageX - startX) * 2.5;
-  if (mapsCarousel.scrollLeft >= maxScrollLeft) mapsCarousel.scrollLeft = 0;
-});
-
-mapsCarousel.addEventListener("touchend", () => {
-  isDragging = false;
-});

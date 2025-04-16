@@ -2,7 +2,7 @@ p,
 h2,
 h3,
 li {
-  color: black;
+  color: var(wheaty);
 }
 
 #maps a {
@@ -14,39 +14,57 @@ li {
 }
 
 .detail-map-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--normal_size);
-  align-items: center;
-  justify-content: center;
   margin-top: 80px;
   margin-bottom: 50px;
-}
-
-.detail-img {
-  width: 80%;
-}
-
-.detail-img img {
-  width: 100%;
-}
-
-.detail-content {
-  width: 80%;
   display: flex;
   flex-direction: column;
   gap: var(--super_size);
 }
 
-.detail-header {
+.detail-body {
+  background-color: var(--bluey);
+  filter: drop-shadow(10px 10px 0px rgba(255, 70, 85, 1));
+  border-radius: var(--tiny_size);
+  padding: var(--super_size);
+}
+
+.detail-map {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--super_size);
+  background-color: var(--bluey);
+  filter: drop-shadow(10px 10px 0px rgba(255, 70, 85, 1));
+  border-radius: var(--tiny_size);
+  padding: calc(var(--super_size) * 2);
+}
+
+.detail-img {
+  width: 60%;
+}
+
+.banner-image {
   width: 100%;
 }
 
-.maps-carousel-container {
+.minimap {
+  width: 40%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: auto;
+  align-items: center;
+  gap: var(--largest_size);
+}
+
+.minimap h4 {
+  font-size: var(--super_size);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+.minimap img {
+  width: 100%;
 }
 
 .maps-carousel-control {
@@ -67,10 +85,10 @@ li {
 }
 
 .maps-carousel {
+  overflow: scroll !important;
   width: 100%;
   display: flex;
-  gap: var(--medium_size);
-  overflow: hidden;
+  gap: var(--smallest_size);
   cursor: grab;
   -webkit-user-select: none;
   user-select: none;
@@ -78,20 +96,13 @@ li {
 
 .maps-carousel img {
   opacity: 0.6;
-  width: 360px;
-  height: 160px;
+  width: 150px;
+  height: 80px;
   object-fit: cover;
 }
 
 .maps-carousel .active {
   opacity: 1;
-}
-
-.detail-body {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--normal_size);
 }
 
 h3 {

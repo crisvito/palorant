@@ -9,7 +9,6 @@
   text-transform: uppercase;
   color: rgb(15, 25, 35);
   letter-spacing: var(--tiny_size);
-  /* filter: drop-shadow(3px 3px 1px rgba(255, 70, 85, 1)); */
 }
 
 .button-more {
@@ -314,6 +313,12 @@
   padding-inline: calc(var(--super_size) * 2);
   background-color: var(--bluey);
   filter: drop-shadow(7px 7px 0.5px rgb(236, 232, 225, 1));
+  display: flex;
+  gap: var(--smallest_size);
+}
+
+.agent-name img {
+  width: 38px;
 }
 
 .agent-image h3 {
@@ -328,7 +333,7 @@
   letter-spacing: var(--tiny_size);
 }
 
-.agent-container img {
+.agent-image-container img {
   position: absolute;
   width: 900px;
   margin-bottom: -200px;

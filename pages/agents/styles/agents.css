@@ -13,7 +13,7 @@ h3 {
 }
 
 .agents-container {
-  margin-top: 80px;
+  margin-block: 80px;
   display: flex;
   flex-direction: column;
   gap: var(--super_size);
@@ -50,7 +50,7 @@ h3 {
   overflow: hidden;
   cursor: pointer;
   filter: drop-shadow(6px 6px 0.5px rgba(255, 70, 85, 1));
-  transition: filter 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .agent-image {
@@ -64,24 +64,38 @@ h3 {
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
-
-.agents-item .agent-name {
+.agent-name {
   width: 100%;
+  font-size: 28px;
   padding-block: var(--large_size);
+  padding-inline: var(--large_size);
   font-weight: bold;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.agents-item:hover img {
+.agent-name img {
+  width: 40px;
+}
+
+.agents-item:hover .agent-image img {
   transform: scale(1.1);
 }
 
 .agents-item:hover {
+  transform: translateY(-3px);
   filter: drop-shadow(4px 4px 2px rgba(255, 70, 85, 1));
 }
 
 .agents-title::before {
   background: linear-gradient(to left, black, transparent);
+}
+
+@media (max-width: 1024px) {
+  .agents-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -93,5 +107,13 @@ h3 {
 @media (max-width: 576px) {
   .agents-list {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .agent-name {
+    font-size: var(--super_size);
+  }
+
+  .agent-name img {
+    width: 50px;
   }
 }
