@@ -59,6 +59,11 @@ li {
 .news-img {
   position: relative;
   overflow: hidden;
+  height: 60%;
+}
+
+.news-img img {
+  height: 100%;
 }
 
 .small {
@@ -80,10 +85,11 @@ li {
 .more-news-item img {
   width: 100%;
   transition: transform 0.2s ease;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .news-desc {
+  height: 40%;
   padding-block: var(--normal_size);
   padding-inline: var(--large_size);
   display: flex;
@@ -93,6 +99,7 @@ li {
 
 .news-desc h3 {
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .news-desc p {
@@ -136,10 +143,5 @@ li {
 @media (max-width: 576px) {
   .more-news-container {
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  .news-desc {
-    height: 100px;
-    align-self: flex-end;
   }
 }
