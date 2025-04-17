@@ -68,8 +68,12 @@ p {
 }
 
 .small {
+  width: 35%;
   display: flex;
-  gap: var(--normal_size);
+  flex-direction: column;
+  align-items: end;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .detail-body {
@@ -99,31 +103,61 @@ p {
   content: "• ";
 }
 
-.text-bold {
-  font-weight: 700;
-  color: var(--wheaty);
+.news-section {
+  margin-bottom: var(--large_size);
+  display: flex;
+  flex-direction: column;
+  gap: var(--medium_size);
+}
+
+.developer-notes h2,
+.news-section h2,
+.news-section h4 {
   text-transform: uppercase;
 }
 
-.komunitas-img {
-  width: 100%;
+.news-section h4 {
+  margin-bottom: var(--small_size);
 }
 
-.komunitas-img img {
-  width: 100%;
+.news-section-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--small_size);
 }
 
-.art-by {
-  text-align: center;
-  font-size: var(--large_size);
+.news-section strong {
   letter-spacing: 1px;
-  line-height: 1.5;
+}
+
+.developer-notes {
+  width: 100%;
+  border-left: var(--smallest_size) solid var(--reddy);
+  padding-block: var(--large_size);
+  padding-left: var(--normal_size);
+  background: var(--wheaty);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--normal_size);
+}
+
+.developer-notes p,
+.developer-notes h2 {
+  color: var(--bluey);
 }
 
 @media (max-width: 1024px) {
   .detail-header {
     flex-direction: column;
     gap: var(--largest_size);
+  }
+
+  .small {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--large_size);
   }
 
   .detail-header h2 {
@@ -140,6 +174,14 @@ p {
 }
 
 @media (max-width: 768px) {
+  .detail-header h2 {
+    font-size: var(--super_size);
+  }
+
+  .small {
+    font-size: var(--normal_size);
+  }
+
   .detail-img {
     width: 100%;
   }
@@ -156,6 +198,14 @@ p {
 @media (max-width: 576px) {
   .detail-header {
     padding-inline: var(--largest_size);
+  }
+
+  .detail-header h2 {
+    font-size: var(--largest_size);
+  }
+
+  .small {
+    font-size: var(--medium_size);
   }
 
   .detail-body {

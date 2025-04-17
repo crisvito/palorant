@@ -19,6 +19,10 @@ h3 {
   border-radius: var(--tiny_size);
 }
 
+.title h2 {
+  font-size: calc(var(--largest_size) * 2);
+}
+
 .report-container {
   margin-top: 80px;
   display: flex;
@@ -26,10 +30,6 @@ h3 {
   gap: var(--super_size);
   align-items: center;
   justify-content: center;
-}
-
-.report-container h2 {
-  font-size: calc(var(--largest_size) * 2);
 }
 
 #reportForm {
@@ -144,28 +144,25 @@ input[type="file"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.8);
-  background-color: #d4edda;
-  color: #155724;
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: var(--bluey);
+  padding: var(--largest_size) var(--super_size);
+  border: var(--smallest_size) solid var(--reddy);
+  outline: none;
   opacity: 0;
   visibility: hidden;
   z-index: 9999;
-  transition: all 0.4s ease;
-  font-size: 1rem;
+  transition: all 0.5s ease;
   text-align: center;
-}
-
-textarea:focus,
-input:focus,
-select:focus {
-  border: 3px solid rgb(0, 0, 255);
-  outline: none;
 }
 
 .popup-success.show {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, -50%) scale(1);
+}
+
+@media (max-width: 576px) {
+  .title h2 {
+    font-size: calc(var(--largest_size) * 1.5);
+  }
 }

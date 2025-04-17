@@ -125,8 +125,12 @@ function showSuccessPopup() {
   popup.classList.add("show");
   setTimeout(() => {
     popup.classList.remove("show");
-  }, 3000);
+  }, 5000);
 }
+
+form.username.addEventListener("blur", validateUsername);
+form.email.addEventListener("blur", validateEmail);
+form.message.addEventListener("blur", validateDescription);
 
 form.username.addEventListener("input", validateUsername);
 form.email.addEventListener("input", validateEmail);
