@@ -33,7 +33,9 @@
     <div class="content">
       <div class="report-bug page">
         <div class="report-container">
-          <h2>BUG REPORT</h2>
+          <div class="title">
+            <h2>BUG REPORT</h2>
+          </div>
           <form id="reportForm">
             <div class="field">
               <label for="username">Username</label>
@@ -50,13 +52,6 @@
               <label for="email">Email</label>
               <input type="email" id="email" name="email" placeholder="Email" />
               <span class="error-message" id="emailError"></span>
-              <div class="checkbox-container">
-                <input type="checkbox" id="emailConsent" name="emailConsent" />
-                <label for="emailConsent">
-                  Saya bersedia menerima email tindak lanjut
-                </label>
-              </div>
-              <span class="error-message" id="emailConsentError"></span>
             </div>
 
             <div class="field">
@@ -92,7 +87,17 @@
               <span class="error-message" id="imageError"></span>
             </div>
 
-            <button type="submit" class="submit-btn">Kirim Laporan</button>
+            <div class="field">
+              <div class="checkbox-container">
+                <input type="checkbox" id="emailConsent" name="emailConsent" />
+                <label for="emailConsent">
+                  I agree to receive follow-up emails.
+                </label>
+              </div>
+              <span class="error-message" id="emailConsentError"></span>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Report</button>
           </form>
           <div id="successPopup" class="popup-success">
             <p>🎉 Terima kasih! Laporan kamu telah dikirim.</p>

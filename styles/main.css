@@ -191,24 +191,24 @@ body {
   gap: var(--super_size);
 }
 
-.logo {
+.logo-footer {
   display: flex;
   align-items: center;
-  gap: var(--normal_size);
+  gap: var(--smallest_size);
 }
 
-.logo img {
+.logo-footer img {
   width: 50px;
 }
 
-.logo a {
+.logo-footer .giotgames {
   font-size: var(--super_size);
   font-weight: 700;
   color: var(--wheaty);
   transition: color 0.3s ease;
 }
 
-.logo:hover a {
+.logo-footer:hover .giotgames {
   color: var(--reddy);
 }
 
@@ -334,8 +334,9 @@ body {
     padding-inline: var(--largest_size);
   }
 
-  .logo {
+  .logo-footer {
     flex-direction: column;
+    gap: var(--normal_size);
   }
 
   .page,

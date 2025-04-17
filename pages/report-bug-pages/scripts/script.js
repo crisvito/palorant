@@ -1,5 +1,4 @@
 const form = document.getElementById("reportForm");
-const successMsg = document.getElementById("successMsg");
 
 const errorMessages = document.querySelectorAll(".error-message");
 const usernameError = document.getElementById("usernameError");
@@ -7,84 +6,149 @@ const emailError = document.getElementById("emailError");
 const descriptionError = document.getElementById("descriptionError");
 const serverError = document.getElementById("serverError");
 const emailConsentError = document.getElementById("emailConsentError");
-
 const imageError = document.getElementById("imageError");
+
 const validTypes = ["image/jpeg", "image/png", "image/gif", "image/webp"];
 const maxSize = 5 * 1024 * 1024;
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+function setErrorState(inputId, errorId, message) {
+  const input = form[inputId];
+  const label = document.querySelector(`label[for="${inputId}"]`);
+  document.getElementById(errorId).textContent = message;
+  if (message) {
+    input.classList.add("error-input");
+    if (label) label.classList.add("error-label");
+  } else {
+    input.classList.remove("error-input");
+    if (label) label.classList.remove("error-label");
+  }
+}
 
-  errorMessages.forEach((el) => {
-    el.textContent = "";
-  });
-
+function validateUsername() {
   const username = form.username.value.trim();
-  const email = form.email.value.trim();
-  const emailConsent = form.emailConsent.checked;
-  const description = form.message.value.trim();
-  const server = form.server.value;
-  const image = form.screenshot;
-
-  let isValid = true;
   if (!username) {
-    usernameError.textContent = "Username is required.";
-    isValid = false;
+    setErrorState("username", "usernameError", "Username is required.");
+    return false;
   }
-  if (!server) {
-    serverError.textContent = "Please select a Palorant server.";
-    isValid = false;
-  }
+  setErrorState("username", "usernameError", "");
+  return true;
+}
 
-  if (!description) {
-    descriptionError.textContent = "Description is required.";
-    isValid = false;
-  } else if (description.length < 20 || description.length > 50) {
-    descriptionError.textContent =
-      "Description length must be 20 - 50 characters";
-    isValid = false;
-  }
+function validateEmail() {
+  const email = form.email.value.trim();
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Regex untuk email
 
   if (!email) {
-    emailError.textContent = "Email is required.";
-    isValid = false;
+    setErrorState("email", "emailError", "Email is required.");
+    return false;
   }
 
-  if (!emailConsent) {
+  if (!emailRegex.test(email)) {
+    setErrorState("email", "emailError", "Please enter a valid email address.");
+    return false;
+  }
+
+  setErrorState("email", "emailError", "");
+  return true;
+}
+
+function validateDescription() {
+  const description = form.message.value.trim();
+  if (!description) {
+    setErrorState("message", "descriptionError", "Description is required.");
+    return false;
+  } else if (description.length < 20 || description.length > 50) {
+    setErrorState(
+      "message",
+      "descriptionError",
+      "Description length must be 20 - 50 characters"
+    );
+    return false;
+  }
+  setErrorState("message", "descriptionError", "");
+  return true;
+}
+
+function validateServer() {
+  const server = form.server.value;
+  if (!server) {
+    setErrorState("server", "serverError", "Please select a Palorant server.");
+    return false;
+  }
+  setErrorState("server", "serverError", "");
+  return true;
+}
+
+function validateEmailConsent() {
+  const checkbox = form.emailConsent;
+  const label = document.querySelector('label[for="emailConsent"]');
+  if (!checkbox.checked) {
     emailConsentError.textContent =
       "Please check the box to receive email notifications.";
-    isValid = false;
+    return false;
+  } else {
+    emailConsentError.textContent = "";
+    return true;
   }
+}
 
-  const files = image.files;
+function validateImage() {
+  const files = form.screenshot.files;
+  const input = form.screenshot;
+  const label = document.querySelector('label[for="screenshot"]');
+  imageError.textContent = "";
+  input.classList.remove("error-input");
+  if (label) label.classList.remove("error-label");
+
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
-
     if (!validTypes.includes(file.type)) {
       imageError.textContent =
         "Only image files are allowed (jpg, png, gif, webp).";
-      isValid = false;
-      break;
+      input.classList.add("error-input");
+      if (label) label.classList.add("error-label");
+      return false;
     }
-
     if (file.size > maxSize) {
       imageError.textContent = "Each image must be less than 5MB.";
-      isValid = false;
-      break;
+      input.classList.add("error-input");
+      if (label) label.classList.add("error-label");
+      return false;
     }
   }
 
-  if (!isValid) return;
-  showSuccessPopup();
-  form.reset();
-});
+  return true;
+}
 
 function showSuccessPopup() {
   const popup = document.getElementById("successPopup");
   popup.classList.add("show");
-
-  // Auto-close dalam 3 detik
   setTimeout(() => {
     popup.classList.remove("show");
   }, 3000);
 }
+
+form.username.addEventListener("input", validateUsername);
+form.email.addEventListener("input", validateEmail);
+form.message.addEventListener("input", validateDescription);
+form.server.addEventListener("change", validateServer);
+form.emailConsent.addEventListener("change", validateEmailConsent);
+form.screenshot.addEventListener("change", validateImage);
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  errorMessages.forEach((el) => (el.textContent = ""));
+
+  const isValid =
+    validateUsername() &
+    validateEmail() &
+    validateDescription() &
+    validateServer() &
+    validateEmailConsent() &
+    validateImage();
+
+  if (!isValid) return;
+
+  showSuccessPopup();
+  form.reset();
+});

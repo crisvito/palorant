@@ -1,11 +1,22 @@
 p,
 h2,
 h3 {
-  color: black;
+  color: var(--wheaty);
 }
 
 .page {
   background-color: rgb(236, 232, 225);
+}
+
+.title {
+  background-color: var(--bluey);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  padding-block: var(--normal_size);
+  filter: drop-shadow(7px 7px 0px rgba(255, 70, 85, 1));
+  border-radius: var(--tiny_size);
 }
 
 .report-container {
@@ -30,7 +41,7 @@ h3 {
   background-color: rgb(15, 25, 35);
   padding: var(--super_size);
   border-radius: var(--tiny_size);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(7px 7px 0px rgba(255, 70, 85, 1));
 }
 
 input,
@@ -62,23 +73,31 @@ input[type="file"] {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--medium_size);
+}
+
+.field label {
+  margin-bottom: var(--medium_size);
+}
+
+.field input {
+  margin-bottom: var(--smallest_size);
 }
 
 .submit-btn {
   margin-top: 1.5rem;
-  background-color: red;
+  background-color: var(--reddy);
   border: none;
   padding: var(--medium_size);
-  border-radius: var(--tiny_size);
   font-size: 1rem;
   cursor: pointer;
   width: 100%;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  filter: drop-shadow(5px 5px 0px rgba(245, 245, 245, 1));
 }
 
 .submit-btn:hover {
   background-color: #0056b3;
+  filter: drop-shadow(3px 3px 1px rgba(245, 245, 245, 1));
 }
 
 .checkbox-container {
@@ -86,6 +105,10 @@ input[type="file"] {
   display: flex;
   align-items: center;
   gap: var(--small_size);
+}
+
+.checkbox-container label {
+  margin-bottom: 0;
 }
 
 .checkbox-container input {
@@ -99,10 +122,21 @@ input[type="file"] {
 }
 
 .error-message {
-  /* display: none; */
-  color: red;
+  color: var(--reddy);
   font-size: var(--normal_size);
   letter-spacing: 1px;
+}
+
+.error-input {
+  border: 2px solid var(--reddy);
+}
+
+.error-label {
+  color: var(--reddy);
+}
+
+.error-input::placeholder {
+  color: var(--reddy);
 }
 
 .popup-success {
@@ -123,7 +157,13 @@ input[type="file"] {
   text-align: center;
 }
 
-/* Muncul */
+textarea:focus,
+input:focus,
+select:focus {
+  border: 3px solid rgb(0, 0, 255);
+  outline: none;
+}
+
 .popup-success.show {
   opacity: 1;
   visibility: visible;
