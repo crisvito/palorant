@@ -103,6 +103,14 @@ body {
   gap: var(--super_size);
 }
 
+.navbar li a {
+  transition: all 0.3s ease;
+}
+
+.navbar-left li:hover a {
+  color: var(--reddy);
+}
+
 .navbar-links {
   display: flex;
   align-items: center;
@@ -114,7 +122,6 @@ body {
 .logo {
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 2px;
   font-size: var(--largest_size);
   padding-left: var(--normal_size);
 }
@@ -133,6 +140,11 @@ body {
   text-transform: uppercase;
   padding-inline: var(--large_size);
   padding-block: var(--small_size);
+  transition: all 0.3s ease;
+}
+
+.report-button:hover {
+  background-color: rgb(255, 0, 21);
 }
 
 .hamburger {
@@ -180,13 +192,23 @@ body {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: var(--normal_size);
+}
+
+.logo img {
+  width: 50px;
+}
+
+.logo a {
   font-size: var(--super_size);
   font-weight: 700;
   color: var(--wheaty);
   transition: color 0.3s ease;
 }
 
-.logo:hover {
+.logo:hover a {
   color: var(--reddy);
 }
 
@@ -245,30 +267,36 @@ body {
   .logo {
     padding-left: 0;
   }
+
+  .navbar {
+    position: relative;
+  }
+
   .navbar-links {
     display: none;
     flex-direction: column;
     align-items: start;
-    position: fixed;
     padding: var(--super_size);
-    top: 60px;
-    left: 0;
+    position: absolute;
+    width: 0;
+    top: 100%;
+    left: 0px;
+    z-index: 999;
+    background-color: rgba(15, 25, 35, 0.9);
+    -webkit-backdrop-filter: blur(var(--medium_size));
+    backdrop-filter: blur(var(--medium_size));
   }
 
   .navbar-links.show {
     width: 40vw;
     display: flex;
     gap: var(--largest_size);
-    background-color: rgba(1, 1, 1, 0.9);
-    -webkit-backdrop-filter: blur(var(--medium_size));
-    backdrop-filter: blur(var(--medium_size));
   }
 
   .hamburger {
     display: flex;
   }
 
-  /* Efek animasi hamburger berubah jadi X */
   .hamburger.active span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
@@ -292,17 +320,10 @@ body {
     padding-inline: var(--super_size);
   }
 
-  .navbar-links {
-    top: 55px;
-  }
-
   .navbar-links.show {
     width: 100%;
   }
-  .report-button {
-    padding-block: var(--smallest_size);
-    padding-inline: var(--normal_size);
-  }
+
   .navbar-left {
     gap: var(--normal_size);
   }
@@ -312,6 +333,11 @@ body {
   .header {
     padding-inline: var(--largest_size);
   }
+
+  .logo {
+    flex-direction: column;
+  }
+
   .page,
   .section {
     padding-inline: var(--largest_size);
@@ -331,6 +357,10 @@ body {
   }
 
   .footer-contact p {
-    font-size: var(--normal_size);
+    font-size: 13px;
+  }
+
+  .footer-copyright span {
+    font-size: 13px;
   }
 }

@@ -16,10 +16,8 @@ function updateButtonText() {
   const button = document.querySelector(".report-button");
   const logo = document.querySelector(".logo");
   if (window.innerWidth <= 576) {
-    button.textContent = "REPORT";
-    logo.textContent = "PLNT";
+    logo.textContent = "P";
   } else {
-    button.textContent = "REPORT BUG";
     logo.textContent = "PALORANT";
   }
 }

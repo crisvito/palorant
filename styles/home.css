@@ -104,6 +104,12 @@
   padding-inline: var(--super_size);
   background-color: var(--reddy);
   filter: drop-shadow(4px 4px 0px rgba(236, 232, 225, 1));
+  transition: all 0.3s ease;
+}
+
+.scroll-more:hover {
+  color: var(--bluey);
+  filter: drop-shadow(2px 2px 1px rgba(236, 232, 225, 1));
 }
 
 /* BRIEF */
@@ -310,11 +316,11 @@
 
 .agent-name {
   padding-block: var(--normal_size);
-  padding-inline: calc(var(--super_size) * 2);
+  padding-inline: calc(var(--super_size));
   background-color: var(--bluey);
   filter: drop-shadow(7px 7px 0.5px rgb(236, 232, 225, 1));
   display: flex;
-  gap: var(--smallest_size);
+  gap: var(--super_size);
 }
 
 .agent-name img {
@@ -377,7 +383,7 @@
   letter-spacing: 1px;
   text-align: justify;
   line-height: 1.3;
-  filter: drop-shadow(3px 3px 1.5px rgba(15, 25, 35, 1));
+  filter: drop-shadow(3px 3px 1.5px rgb(28, 36, 42));
 }
 
 .agent-description video {
@@ -586,6 +592,11 @@
   .desc-header {
     align-self: flex-start;
   }
+
+  .maps-carousel-control {
+    justify-content: end;
+    right: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -661,7 +672,7 @@
     height: 500px;
   }
 
-  .agent-container img {
+  .agent-image-container img {
     margin-bottom: -300px;
   }
 
@@ -692,11 +703,6 @@
   .maps-carousel-container {
     justify-content: center;
   }
-  .maps-carousel-control {
-    justify-content: end;
-    bottom: 0;
-    right: 0;
-  }
 }
 
 @media (max-width: 576px) {
@@ -708,11 +714,6 @@
     justify-content: start;
   }
 
-  .maps-carousel-control {
-    justify-content: end;
-    right: 0;
-  }
-
   .maps-carousel-item {
     width: 95%;
     height: 400px;
@@ -722,12 +723,12 @@
   .item-1 img,
   .item-2 img,
   .item-3 img {
-    width: 250px;
+    width: 270px;
     align-self: center;
   }
 
   .item-2 img {
-    width: 300px;
+    width: 320px;
   }
 
   .item-1 img {
