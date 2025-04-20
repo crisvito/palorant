@@ -1,19 +1,28 @@
 const imgs = document.querySelectorAll(".maps-carousel img");
 const bannerImg = document.querySelector(".banner-image");
 
-let currentActive = imgs[0];
-currentActive.classList.add("active");
+let currentIndex = 0;
+imgs[currentIndex].classList.add("active");
+bannerImg.src = imgs[currentIndex].src;
 
-imgs.forEach((img) => {
+imgs.forEach((img, index) => {
   img.addEventListener("click", () => {
-    bannerImg.src = img.src;
-    if (img !== currentActive) {
-      currentActive.classList.remove("active"); // hapus dari sebelumnya
-      img.classList.add("active"); // kasih ke yang sekarang
-      currentActive = img;
-    }
+    updateBanner(index);
   });
 });
+
+function updateBanner(newIndex) {
+  imgs[currentIndex].classList.remove("active");
+  currentIndex = newIndex;
+  imgs[currentIndex].classList.add("active");
+  bannerImg.src = imgs[currentIndex].src;
+
+  imgs[currentIndex].scrollIntoView({
+    behavior: "smooth",
+    inline: "center",
+    block: "nearest",
+  });
+}
 
 const mapsCarousel = document.querySelector(".maps-carousel");
 const arrowBtns = document.querySelectorAll(".maps-carousel-control span");
@@ -24,11 +33,12 @@ let isDragging = false,
 
 arrowBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    let maxScrollLeft = mapsCarousel.scrollWidth - mapsCarousel.clientWidth;
-    if (btn.id === "left") mapsCarousel.scrollLeft -= firstImgWidth;
-    else {
-      mapsCarousel.scrollLeft += firstImgWidth;
-      if (mapsCarousel.scrollLeft >= maxScrollLeft) mapsCarousel.scrollLeft = 0;
+    if (btn.id === "left") {
+      const prevIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+      updateBanner(prevIndex);
+    } else {
+      const nextIndex = (currentIndex + 1) % imgs.length;
+      updateBanner(nextIndex);
     }
   });
 });

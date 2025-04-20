@@ -165,4 +165,8 @@ input[type="file"] {
   .title h2 {
     font-size: calc(var(--largest_size) * 1.5);
   }
+
+  .popup-success {
+    width: 80%;
+  }
 }

@@ -78,6 +78,21 @@ li {
   gap: var(--medium_size);
 }
 
+.logo-news {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  background-color: var(--reddy);
+  padding-block: var(--smallest_size);
+  padding-inline: var(--medium_size);
+  filter: drop-shadow(4px 4px 0px rgba(15, 25, 35, 1));
+}
+
+.logo-news p {
+  font-weight: 900;
+  font-size: var(--large_size);
+}
+
 .small p {
   font-size: 12px;
 }

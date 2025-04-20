@@ -12,20 +12,6 @@ window.onscroll = function () {
   prevScrollpos = currentScrollPos;
 };
 
-function updateButtonText() {
-  const button = document.querySelector(".report-button");
-  const logo = document.querySelector(".logo");
-  if (window.innerWidth <= 576) {
-    logo.textContent = "P";
-  } else {
-    logo.textContent = "PALORANT";
-  }
-}
-
-// Jalankan saat halaman dimuat dan saat layar di-resize
-window.addEventListener("load", updateButtonText);
-window.addEventListener("resize", updateButtonText);
-
 const hamburger = document.querySelector(".hamburger");
 const navbarLinks = document.querySelector(".navbar-links");
 
