@@ -122,17 +122,14 @@ input[type="file"] {
 }
 
 .error-message {
+  margin-top: var(--tiny_size);
   color: var(--reddy);
-  font-size: var(--normal_size);
-  letter-spacing: 1px;
+  font-size: 14px;
+  letter-spacing: 1.3px;
 }
 
 .error-input {
   border: 2px solid var(--reddy);
-}
-
-.error-label {
-  color: var(--reddy);
 }
 
 .error-input::placeholder {
