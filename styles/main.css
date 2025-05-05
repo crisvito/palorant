@@ -124,7 +124,7 @@ body {
   text-transform: uppercase;
   font-size: var(--largest_size);
   padding-left: var(--normal_size);
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .navbar-right {

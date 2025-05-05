@@ -105,6 +105,11 @@ h3 {
 }
 
 @media (max-width: 576px) {
+  .agents-title h2 {
+    font-size: var(--super_size);
+    letter-spacing: 2px;
+  }
+
   .agents-list {
     grid-template-columns: repeat(1, 1fr);
   }

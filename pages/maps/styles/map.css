@@ -141,6 +141,11 @@ h3 {
 }
 
 @media (max-width: 576px) {
+  .agents-title h2 {
+    font-size: var(--super_size);
+    letter-spacing: 2px;
+  }
+
   .maps-item {
     height: 450px;
   }
