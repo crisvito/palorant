@@ -1,14 +1,16 @@
 #news a {
   color: red;
 }
-
 p,
 h2,
 h3,
 h4,
-li,
 strong {
   color: var(--wheaty);
+  letter-spacing: 1px;
+}
+
+content li {
   letter-spacing: 1px;
 }
 
