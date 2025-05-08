@@ -7,7 +7,7 @@ window.onscroll = function () {
       navbarLinks.classList.remove("show");
       hamburger.classList.remove("active");
     }
-    header.style.top = prevScrollpos > currentScrollPos ? "20px" : "-60px";
+    header.style.top = prevScrollpos > currentScrollPos ? "20px" : "-100px";
   }
   prevScrollpos = currentScrollPos;
 };
